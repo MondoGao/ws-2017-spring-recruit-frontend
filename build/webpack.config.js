@@ -10,9 +10,20 @@ module.exports = {
   module: {
     rules: [
       {
-
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
       }
     ]
+  },
+  devServer: {
+    port: 3100,
+    contentBase: [path.join(__dirname, '../app'), path.join(__dirname, '../dist')],
+    publicPath: '/js',
+    compress: true,
+    stats: {
+      colors: true
+    }
   },
   plugins: [
     new BrowserSyncPlugin(
