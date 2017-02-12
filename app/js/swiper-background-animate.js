@@ -8,17 +8,12 @@ export default function (swiper) {
     let prevIndex = swiper.previousIndex;
     let direction = actIndex - prevIndex;
 
-    function transitionEndCallBack(el) {
-      return function realCallBack(e) {
-        if (e.srcElement == el) {
-          swiper.unlockSwipes();
-          swiper["slide" + (direction > 0 ? "Next" : "Prev")]();
-          el.removeEventListener('transitionend', realCallBack);
-        }
-      }
+    function transitionEndCallBack() {
+      swiper.unlockSwipes();
+      swiper["slide" + (direction > 0 ? "Next" : "Prev")]();
     }
+    setTimeout(transitionEndCallBack, 300)
 
-    document.body.addEventListener('transitionend', transitionEndCallBack(document.body))
     document.body.style.backgroundColor = colors["mainColor" + slides[(actIndex + direction)].dataset.background];
   }
 };
