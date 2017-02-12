@@ -6,7 +6,8 @@ const WebpackDevServer = require('webpack-dev-server');
 
 const compiler = Webpack(config);
 const server = new WebpackDevServer(compiler, {
-  publicPath: '/dist/',
+  contentBase: [path.join(__dirname, '../app'), path.join(__dirname, '../dist')],
+  publicPath: '/js',
   compress: true,
   stats: {
     colors: true

@@ -6,7 +6,7 @@
   "author": "MondoGao",
   "license": "MIT",
   "scripts": {
-    "dev": "node build/index.js",
+    "dev": "node build/server.js",
     "start": "webpack-dev-server"
   },
   "devDependencies": {
