@@ -1,6 +1,8 @@
 var path = require('path');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
+let broserSyncConfig = require('./broser-sync.config')
+
 module.exports = {
   entry: './app/entry',
   output: {
@@ -12,7 +14,25 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        use: 'babel-loader'
+      },
+      {
+        test: /\.pcss$/,
+        use: [
+          'style-loader',
+          'css-loader?imprtLoaders=1',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: function () {
+                return [
+                  require('postcss-cssnext'),
+                  require('autoprefixer')
+                ];
+              }
+            }
+          }
+        ]
       }
     ]
   },
@@ -26,13 +46,7 @@ module.exports = {
     }
   },
   plugins: [
-    new BrowserSyncPlugin(
-      {
-        host: 'localhost',
-        port: 3000,
-        files: ['app/**/*.html'],
-        proxy: 'http://localhost:3100/'
-      }, {
+    new BrowserSyncPlugin(broserSyncConfig, {
         reload: true
       }
     )
