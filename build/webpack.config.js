@@ -22,6 +22,10 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
+        test: /\.(png|jpg|ico|gif)/,
+        use: 'url-loader'
+      },
+      {
         test: /\.pcss$/,
         use: [
           'style-loader',
