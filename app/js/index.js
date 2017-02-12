@@ -1,1 +1,2 @@
-require('../css/index.pcss')
+require('lib-flexible');
+require('../css/index.pcss');

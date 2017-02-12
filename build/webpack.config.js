@@ -2,6 +2,7 @@ var path = require('path');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 let broserSyncConfig = require('./broser-sync.config')
+let postcssConfig = require('./postcss.config')
 
 module.exports = {
   entry: './app/entry',
@@ -24,12 +25,7 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: function () {
-                return [
-                  require('postcss-cssnext'),
-                  require('autoprefixer')
-                ];
-              }
+              plugins: postcssConfig
             }
           }
         ]
