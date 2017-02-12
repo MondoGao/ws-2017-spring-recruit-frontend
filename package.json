@@ -4,5 +4,18 @@
   "main": "build/index.js",
   "repository": "git@github.com:MondoGao/ws-2017-spring-recruit-frontend.git",
   "author": "MondoGao",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "dev": "node build/index.js",
+    "start": "webpack-dev-server"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.7",
+    "browser-sync-webpack-plugin": "^1.1.4",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
+  },
+  "dependencies": {
+    "swiper": "^3.4.1"
+  }
 }
