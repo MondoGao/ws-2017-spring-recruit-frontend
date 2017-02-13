@@ -1,8 +1,17 @@
 :root {
   --textColor: #333;
+  --textColorEmp: #999900;
   --mainColor1: #fdf4eb;
   --mainColor2: #fff;
   --mainColor3: #ffffcd;
+
+  --header-img: {
+    & img {
+      width: 320px;
+      height: 170px;
+      box-shadow: 0 0 40px -10px rgba(0, 0, 0, .8);
+    }
+  }
 }
 
 * {
@@ -10,6 +19,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3, p {
+  text-shadow: 0 1px 10px rgba(0, 0, 0, .18);
+}
+
+a, a:visited, a:focus {
+  text-decoration: none;
+  color: inherit;
 }
 
 body {
@@ -22,8 +44,9 @@ body {
   &.color-3 {
     background-color: var(--mainColor3);
   }
+  color: var(--textColor);
   transition: background .25s linear;
-
+  font-family: Helvetica, 'Mirosoft Yahei', Arial, sans-serif;
 }
 
 .swiper-container {
@@ -86,4 +109,104 @@ body {
     top: 300px;
     left: 40px;
   }
+}
+
+p.ellipsis {
+  &::before {
+    content: "...";
+    display: block;
+    text-align: center;
+    font-size: 36px;
+    vertical-align: middle;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+  }
+}
+
+.group-desc {
+  @apply --header-img;
+  & h3 {
+    margin-top: 24px;
+    font-size: 24px;
+    line-height: 2;
+  }
+  & p {
+    font-size: 16px;
+    line-height: 2.4;
+    letter-spacing: 0.75px;
+    & span {
+      margin-left: 10px;
+      &:first-of-type {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.product-desc {
+  @apply --header-img;
+  & h3 {
+    margin: 30px 0;
+    font-size: 24px;
+    line-height: 2;
+  }
+  & p {
+    font-size: 16px;
+    line-height: 2.4;
+    letter-spacing: 0.75px;
+  }
+}
+.swiper-slide:nth-child(11) {
+  padding-top: 20px;
+  & h2 {
+    font-size: 36px;
+    padding: 200px 0 30px;
+    background: url("../img/6/bg.png") center no-repeat;
+    background-size: contain;
+  }
+  & ul {
+    margin-top: 30px;
+    & li {
+      font-size: 24px;
+      line-height: 2;
+    }
+  }
+}
+
+.swiper-slide:last-child {
+  position: relative;
+  & div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url("../img/10/bg.png") left bottom no-repeat;
+    background-size: contain;
+    height: 500px;
+    width: 320px;
+    transform: rotate(15deg) translateX(-50px);
+    transform-origin: left bottom;
+  }
+  & p {
+    padding: 25px 0 0 45px;
+    font-size: 16px;
+    line-height: 2.4;
+    letter-spacing: 0.75px;
+    & span {
+      color: var(--textColorEmp);
+    }
+  }
+}
+
+.btn {
+  display: inline-block;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 0 15px;
+  font-size: 20px;
+  line-height: 2;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .3);
 }

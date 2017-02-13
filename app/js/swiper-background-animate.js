@@ -12,7 +12,7 @@ export default function (swiper) {
       swiper.unlockSwipes();
       swiper["slide" + (direction > 0 ? "Next" : "Prev")]();
     }
-    setTimeout(transitionEndCallBack, 300)
+    setTimeout(transitionEndCallBack, 320)
 
     document.body.style.backgroundColor = colors["mainColor" + slides[(actIndex + direction)].dataset.background];
   }
