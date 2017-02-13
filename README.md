@@ -3,6 +3,11 @@
 ## 安装及运行
 
 ```shell
+# 安装依赖
+npm install
+# or
+yarn install
+
 # 运行本地测试服务器
 npm run dev
 
@@ -11,8 +16,21 @@ npm run build
 ```
 
 ## 更新纪录
+### 1.0.0 - 2017-02-13
 
-### 0.2.8
+#### Feature
+
+- 完成全部样式和动画
+
+#### Fix
+
+- 删除最后一页多余的 overflow: hidden
+
+#### Chore
+
+- 增加生产构建脚本
+
+### 0.2.8 - 2017-02-13
 
 #### Feature
 
