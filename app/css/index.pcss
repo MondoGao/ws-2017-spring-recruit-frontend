@@ -48,12 +48,17 @@ body {
   color: var(--textColor);
   transition: background .25s linear;
   font-family: Helvetica, 'Mirosoft Yahei', Arial, sans-serif;
+  perspective: 400px;
 }
 
 .swiper-container {
   width: 100%;
   height: 100vh;
   text-align: center;
+  transition: transform .5s;
+  &.hide {
+    transform: translateZ(-200px);
+  }
 }
 
 .swiper-slide:nth-child(1) {
@@ -217,7 +222,7 @@ p.ellipsis {
 }
 
 .ani {
-  transition: all var(--aniDuration);
+  transition: transform var(--aniDuration), opacity var(--aniDuration);
 }
 
 .swiper-slide {
@@ -289,4 +294,138 @@ p.ellipsis {
 .ani-delay-3 {
   transition-delay: 0.3s;
   animation-delay: 0.3s;
+}
+
+#apply {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  color: #DCE6E6;
+  pointer-events: none;
+
+  & form {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+    & .field-group {
+      background-color: #2D3535;
+      height: 88%;
+      padding-top: 30px;
+      transform: translateY(-100%);
+      transition: transform .5s;
+      & .input-group {
+        width: 0;
+        margin: 0 0 20px 10%;
+        border-bottom: 4px solid rgba(255, 255, 255, .4);
+        white-space: nowrap;
+        opacity: 0;
+        transition: all .5s;
+        transition-delay: .5s;
+        &.no-underline {
+          border-bottom: none;
+          & input:checked + label {
+            color: #DCE6E6;
+          }
+          & label {
+            margin-right: 25px;
+          }
+        }
+      }
+      & input {
+        color: inherit;
+        background-color: transparent;
+        outline: none;
+        font-size: 22px;
+        letter-spacing: 2px;
+        &[type='text'] {
+          width: 100%;
+          transition: background .5s;
+          &:focus {
+            background-color: rgba(255,255,255,.1);
+          }
+        }
+      }
+      & label {
+        font-size: 22px;
+        color: rgba(255,255,255,.5);
+      }
+    }
+  }
+  &.show {
+    pointer-events: auto;
+    & #mask {
+      opacity: 1;
+    }
+    & #submit {
+      transform: translateY(0);
+    }
+    & .field-group {
+      transform: translateY(0);
+      & .input-group {
+        opacity: 1;
+        width: 80%;
+
+      }
+    }
+    & .btn-close {
+      opacity: 1;
+    }
+  }
+}
+#submit {
+  width: 100%;
+  height: 12%;
+  font-size: 22px;
+  line-height: 3;
+  color: #fff;
+  letter-spacing: 5px;
+  background-color: #22D2D2;
+  transform: translateY(100%);
+  transition: transform .5s;
+}
+#mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0;
+  transition: opacity .8s;
+}
+
+.btn-close {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 3em;
+  height: 3em;
+  cursor: pointer;
+  z-index: 6;
+  opacity: 0;
+  transition: transform 1s, opacity 1s;
+  &:hover {
+    transform: rotate(270deg);
+  }
+  & .x-top, & .x-bottom {
+    height: 50%;
+    width: 50%;
+    margin-left: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.4);
+  }
+  & .x-top {
+    transform-origin: left bottom;
+    transform: rotate(-45deg);
+    border-color: transparent transparent currentColor currentColor;
+  }
+  & .x-bottom {
+    margin-top: -3px;
+    transform-origin: left top;
+    transform: rotate(45deg);
+    border-color: currentColor transparent transparent currentColor;
+  }
 }

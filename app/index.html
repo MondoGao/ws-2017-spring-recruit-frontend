@@ -119,12 +119,53 @@
                     我们，期待你的加入！
                 </p>
             </div>
-            <a href="#" class="btn btn-show-form ani ani-fade-in">点击加入我们</a>
+            <a id="show-form" href="#" class="btn btn-show-form ani ani-fade-in">点击加入我们</a>
         </div>
     </div>
 
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
+</div>
+<div id="apply">
+    <div id="mask"></div>
+    <div class="btn-close">
+        <div class="x-top"></div>
+        <div class="x-bottom"></div>
+    </div>
+    <form action="/apply" method="post">
+        <div class="field-group">
+            <div class="input-group">
+                <input type="text" name="newbie[name]" placeholder="姓名">
+            </div>
+            <div class="input-group no-underline">
+                <input id="newbie_sex_male" type="radio" name="newbie[sex]" value="male">
+                <label for="newbie_sex_male">男</label>
+                <input id="newbie_sex_female" type="radio" name="newbie[sex]" value="female">
+                <label for="newbie_sex_female">女</label>
+            </div>
+            <div class="input-group">
+                <input type="text" name="newbie[qq]" placeholder="QQ">
+            </div>
+            <div class="input-group">
+                <input type="text" name="newbie[phone]" placeholder="手机号">
+            </div>
+            <div class="input-group">
+                <input type="text" name="newbie[grade_class]" placeholder="院系">
+            </div>
+            <div class="input-group no-underline">
+                <input id="newbie_group_fe" type="checkbox" name="newbie[group]" value="fe">
+                <label for="newbie_group_fe">前端</label>
+                <input id="newbie_group_be" type="checkbox" name="newbie[group]" value="be">
+                <label for="newbie_group_be">程序</label>
+                <input id="newbie_group_ui" type="checkbox" name="newbie[group]" value="ui">
+                <label for="newbie_group_ui">UI</label>
+            </div>
+            <div class="input-group">
+                <input type="text" name="newbie[bio]" placeholder="简介">
+            </div>
+        </div>
+        <input id="submit" type="submit" value="提交">
+    </form>
 </div>
 <script src="js/bundle.js"></script>
 </body>

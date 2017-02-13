@@ -15,3 +15,10 @@ let swiper = new Swiper('.swiper-container', {
     changeBodyColor(swiper);
   }
 });
+function toggleForm (e) {
+  e.preventDefault();
+  document.getElementById('apply').classList.toggle('show')
+  document.getElementsByClassName('swiper-container')[0].classList.toggle('hide')
+}
+document.getElementById('show-form').addEventListener('click',toggleForm);
+document.getElementsByClassName('btn-close')[0].addEventListener('click', toggleForm);
