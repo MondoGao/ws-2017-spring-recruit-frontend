@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "node build/server.js",
-    "start": "webpack-dev-server"
+    "build": "node build/build.js "
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
