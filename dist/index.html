@@ -6,8 +6,94 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>WESharp 2017 春季招新</title>
+    <style type="text/css">
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 10;
+            background-color: #2D3535;
+            -webkit-transition: opacity 1s;
+            transition: opacity 1s;
+        }
+
+        #loading.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .pacman {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+
+        .pacman :first-of-type,
+        .pacman :nth-child(2) {
+            width: 0;
+            height: 0;
+            border: 0.78125rem solid #fff;
+            border-right-color: transparent;
+            border-radius: 0.78125rem;
+            position: relative;
+            left: -0.9375rem;
+        }
+
+        .pacman :first-of-type {
+            -webkit-animation: rotate_pacman_half_up 0.5s 0s infinite;
+            animation: rotate_pacman_half_up 0.5s 0s infinite;
+        }
+
+        .pacman :nth-child(2) {
+            -webkit-animation: rotate_pacman_half_down 0.5s 0s infinite;
+            animation: rotate_pacman_half_down 0.5s 0s infinite;
+            margin-top: -1.5625rem;
+        }
+
+        .pacman :nth-child(3) {
+            -webkit-animation: pacman-balls 1s -0.66s infinite linear;
+            animation: pacman-balls 1s -0.66s infinite linear;
+        }
+
+        .pacman :nth-child(4) {
+            -webkit-animation: pacman-balls 1s -0.33s infinite linear;
+            animation: pacman-balls 1s -0.33s infinite linear;
+        }
+
+        .pacman :nth-child(5) {
+            -webkit-animation: pacman-balls 1s 0s infinite linear;
+            animation: pacman-balls 1s 0s infinite linear;
+        }
+
+        .pacman :nth-child(3),
+        .pacman :nth-child(4),
+        .pacman :nth-child(5),
+        .pacman :nth-child(6) {
+            background-color: #fff;
+            border-radius: 100%;
+            margin: 0.0625rem;
+            width: 0.3125rem;
+            height: 0.3125rem;
+            position: absolute;
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            top: 0.5625rem;
+            left: 2.1875rem;
+        }
+    </style>
 </head>
 <body>
+<div id="loading">
+    <div class="pacman">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
 <div class="swiper-container">
     <div class="swiper-wrapper">
         <div class="swiper-slide" data-background="2">
