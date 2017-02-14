@@ -3,6 +3,7 @@ require('swiper/dist/css/swiper.min.css');
 require('../css/index.pcss');
 import changeBodyColor from './swiper-background-animate'
 import colors from './colors'
+require('./form.js');
 
 let swiper = new Swiper('.swiper-container', {
   nextButton: '.swiper-button-next',

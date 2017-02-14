@@ -126,42 +126,49 @@
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
 </div>
-<div id="apply">
+<div id="apply" class="show">
     <div id="mask"></div>
     <div class="btn-close">
         <div class="x-top"></div>
         <div class="x-bottom"></div>
     </div>
-    <form action="/apply" method="post">
+    <form action="/newbies" method="post">
         <div class="field-group">
             <div class="input-group">
                 <input id="newbie_name" type="text" name="newbie[name]" placeholder="姓名">
+                <p class="error"></p>
             </div>
             <div class="input-group no-underline">
                 <input id="newbie_sex_male" type="radio" name="newbie[sex]" value="male">
                 <label for="newbie_sex_male">男</label>
                 <input id="newbie_sex_female" type="radio" name="newbie[sex]" value="female">
                 <label for="newbie_sex_female">女</label>
+                <p class="error"></p>
             </div>
             <div class="input-group">
                 <input id="newbie_qq" type="text" name="newbie[qq]" placeholder="QQ">
+                <p class="error"></p>
             </div>
             <div class="input-group">
                 <input id="newbie_phone" type="text" name="newbie[phone]" placeholder="手机号">
+                <p class="error"></p>
             </div>
             <div class="input-group">
                 <input id="newbie_grade_class" type="text" name="newbie[grade_class]" placeholder="院系">
+                <p class="error"></p>
             </div>
             <div class="input-group no-underline">
-                <input id="newbie_group_fe" type="checkbox" name="newbie[group]" value="fe">
+                <input id="newbie_group_fe" type="radio" name="newbie[group]" value="fe">
                 <label for="newbie_group_fe">前端</label>
-                <input id="newbie_group_be" type="checkbox" name="newbie[group]" value="be">
+                <input id="newbie_group_be" type="radio" name="newbie[group]" value="be">
                 <label for="newbie_group_be">程序</label>
-                <input id="newbie_group_ui" type="checkbox" name="newbie[group]" value="ui">
+                <input id="newbie_group_ui" type="radio" name="newbie[group]" value="ui">
                 <label for="newbie_group_ui">UI</label>
+                <p class="error"></p>
             </div>
             <div class="input-group">
                 <input id="newbie_bio" type="text" name="newbie[bio]" placeholder="简介">
+                <p class="error"></p>
             </div>
         </div>
         <input id="submit" type="submit" value="提交">

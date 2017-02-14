@@ -336,17 +336,21 @@ p.ellipsis {
             margin-right: 25px;
           }
         }
+        & .error {
+          display: block;
+          position: absolute;
+          bottom: -22px;
+          font-size: 14px;
+          font-weight: bold;
+          line-height: 1.5;
+          color: #b53030;
+          opacity: 0;
+          transition: opacity .5s .5s;
+        }
         &.warn {
           background-color: rgba(141,0,10,0.5);
-          &:after {
-            content: attr(data-warn);
-            display: block;
-            position: absolute;
-            bottom: -22px;
-            font-size: 14px;
-            font-weight: bold;
-            line-height: 1.5;
-            color: #b53030;
+          & .error {
+            opacity: 1;
           }
         }
       }

@@ -1,3 +1,4 @@
 require('lib-flexible');
-require('./js/index');
-
+window.addEventListener('load', function () {
+  require('./js/index');
+});
