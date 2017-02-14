@@ -1,5 +1,8 @@
 function validate(e) {
-  let flag = false;
+  e.preventDefault();
+
+  let form = e.srcElement;
+  let flag = false; // flag = true 代表有验证不通过
   Array.prototype.forEach.call(document.querySelectorAll('input[type=text]'), function (el) {
     let fakeEvent = {
       srcElement: el
@@ -8,10 +11,34 @@ function validate(e) {
       flag = true;
     }
   });
-  validateChecked(document.querySelectorAll("[name='newbie[sex]']"))
-  validateChecked(document.querySelectorAll("[name='newbie[group]']"))
-  if (flag) {
-    e.preventDefault();
+  if (!validateChecked(document.querySelectorAll("[name='newbie[sex]']"))){
+    flag = true;
+  }
+  if (!validateChecked(document.querySelectorAll("[name='newbie[group]']"))) {
+    flag = true;
+  }
+  if (!flag) {
+    let XHR = new XMLHttpRequest();
+    let FD  = new FormData(form);
+
+    // for (let i = 0, input, value; i < form.elements.length; i++) {
+    //   input = form.elements[i];
+    //   if (input.name && input.value) {
+    //     value = (input.type == "checkbox" || input.type == "radio" ? (input.checked ? input.value : '') : input.value);
+    //     if (value) FD.append(input.name, value);
+    //   }
+    // }
+
+    XHR.onreadystatechange = function () {
+      if(XHR.readyState === XMLHttpRequest.DONE) {
+        if (XHR.status == 200) {
+          alert("报名成功！")
+        } else
+          alert("报名失败！")
+      }
+    };
+    XHR.open('POST', form.action);
+    XHR.send(FD);
   }
 }
 
