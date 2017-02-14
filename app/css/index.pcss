@@ -316,7 +316,10 @@ p.ellipsis {
       padding-top: 30px;
       transform: translateY(-100%);
       transition: transform .5s;
+      overflow-y: auto;
+
       & .input-group {
+        position: relative;
         width: 0;
         margin: 0 0 20px 10%;
         border-bottom: 4px solid rgba(255, 255, 255, .4);
@@ -331,6 +334,19 @@ p.ellipsis {
           }
           & label {
             margin-right: 25px;
+          }
+        }
+        &.warn {
+          background-color: rgba(141,0,10,0.5);
+          &:after {
+            content: attr(data-warn);
+            display: block;
+            position: absolute;
+            bottom: -22px;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.5;
+            color: #b53030;
           }
         }
       }

@@ -135,7 +135,7 @@
     <form action="/apply" method="post">
         <div class="field-group">
             <div class="input-group">
-                <input type="text" name="newbie[name]" placeholder="姓名">
+                <input id="newbie_name" type="text" name="newbie[name]" placeholder="姓名">
             </div>
             <div class="input-group no-underline">
                 <input id="newbie_sex_male" type="radio" name="newbie[sex]" value="male">
@@ -144,13 +144,13 @@
                 <label for="newbie_sex_female">女</label>
             </div>
             <div class="input-group">
-                <input type="text" name="newbie[qq]" placeholder="QQ">
+                <input id="newbie_qq" type="text" name="newbie[qq]" placeholder="QQ">
             </div>
             <div class="input-group">
-                <input type="text" name="newbie[phone]" placeholder="手机号">
+                <input id="newbie_phone" type="text" name="newbie[phone]" placeholder="手机号">
             </div>
             <div class="input-group">
-                <input type="text" name="newbie[grade_class]" placeholder="院系">
+                <input id="newbie_grade_class" type="text" name="newbie[grade_class]" placeholder="院系">
             </div>
             <div class="input-group no-underline">
                 <input id="newbie_group_fe" type="checkbox" name="newbie[group]" value="fe">
@@ -161,7 +161,7 @@
                 <label for="newbie_group_ui">UI</label>
             </div>
             <div class="input-group">
-                <input type="text" name="newbie[bio]" placeholder="简介">
+                <input id="newbie_bio" type="text" name="newbie[bio]" placeholder="简介">
             </div>
         </div>
         <input id="submit" type="submit" value="提交">
