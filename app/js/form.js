@@ -1,5 +1,4 @@
 function validate(e) {
-  console.log(e);
   let flag = false;
   Array.prototype.forEach.call(document.querySelectorAll('input[type=text]'), function (el) {
     let fakeEvent = {
