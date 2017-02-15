@@ -1,4 +1,4 @@
-require('lib-flexible');
+// require('lib-flexible');
 window.addEventListener('load', function () {
   require('./js/index');
   setTimeout(function () {
