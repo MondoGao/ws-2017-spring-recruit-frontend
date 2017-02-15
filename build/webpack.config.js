@@ -1,8 +1,10 @@
-var path = require('path');
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+let path = require('path');
+let BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+let Webpack = require('webpack');
 
-let broserSyncConfig = require('./broser-sync.config')
-let postcssConfig = require('./postcss.config')
+let broserSyncConfig = require('./broser-sync.config');
+let postcssConfig = require('./postcss.config');
+
 
 module.exports = {
   entry: './app/entry',
@@ -52,7 +54,12 @@ module.exports = {
   plugins: [
     new BrowserSyncPlugin(broserSyncConfig, {
         reload: true
-      }
+      },
+      new Webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        }
+      })
     )
   ]
 };
