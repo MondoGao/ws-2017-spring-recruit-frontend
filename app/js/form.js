@@ -20,17 +20,17 @@ function validate(e) {
     flag = true;
   }
   if (!validateNull(document.getElementById('newbie_phone')) || !validateFun(document.getElementById('newbie_phone'), function (el) {
-      return el.value.replace(/^\s+|\s+$/g,"").match(/1[0-9]{10}/)
+      return el.value.replace(/\s+/g,"").length < 12 && el.value.replace(/\s+/g,"").match(/1[0-9]{10}\b/)
     }, "手机号数错了吧~")) {
     flag = true;
   }
   if (!validateNull(document.getElementById('newbie_qq')) || !validateFun(document.getElementById('newbie_qq'), function (el) {
-      return el.value.replace(/^\s+|\s+$/g,"").match(/[1-9][0-9]{5,13}/)
+      return el.value.replace(/\s+/g,"").length < 14 && el.value.replace(/\s+/g,"").match(/[1-9][0-9]{5,13}\b/)
     }, "你的QQ很神奇")) {
     flag = true;
   }
   if (!validateNull(document.getElementById('newbie_bio')) || !validateFun(document.getElementById('newbie_bio'), function (el) {
-      return el.value.replace(/^\s+|\s+$/g,"").length < 500
+      return el.value.length < 500
     }, "个人简介太长，又不是写论文~")) {
     flag = true;
   }
@@ -49,7 +49,9 @@ function validate(e) {
       input = form.elements[i];
       if (input.name && input.value) {
         value = (input.type == "checkbox" || input.type == "radio" ? (input.checked ? input.value : '') : input.value);
-        if (value) FD.append(input.name, value.replace(/^\s+|\s+$/g,""));
+        if (value) {
+          FD.append(input.name, input.name.match(/qq|phone/) ? value.replace(/\s+/g,"") : value.replace(/^\s+|\s+$/g,""));
+        }
       }
     }
 
