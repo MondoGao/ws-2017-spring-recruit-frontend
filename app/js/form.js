@@ -3,34 +3,36 @@ function validate(e) {
 
   let form = e.srcElement;
   let flag = false; // 只有此处 flag = true 代表有验证不通过
-  Array.prototype.forEach.call(document.querySelectorAll('input[type=text]'), function (el) {
-    let fakeEvent = {
-      srcElement: el
-    };
-    if (!validateNull(fakeEvent)) {
-      flag = true;
-    }
-  });
 
-  if (!validateFun(document.getElementById('newbie_name'), function (el) {
+  // bio
+  if (!validateNull(document.getElementById('newbie_bio'))) {
+    flag = true;
+  }
+
+  if (!validateNull(document.getElementById('newbie_grade_class'))) {
+    flag = true;
+  }
+
+  // name
+  if (!validateNull(document.getElementById('newbie_name')) || !validateFun(document.getElementById('newbie_name'), function (el) {
       return el.value.replace(/^\s+|\s+$/g,"").length < 20
     }, "你名字太长啦！")) {
     flag = true;
   }
-  if (!validateFun(document.getElementById('newbie_phone'), function (el) {
+  if (!validateNull(document.getElementById('newbie_phone')) || !validateFun(document.getElementById('newbie_phone'), function (el) {
       return el.value.replace(/^\s+|\s+$/g,"").match(/1[0-9]{10}/)
     }, "手机号数错了吧~")) {
     flag = true;
   }
-  if (!validateFun(document.getElementById('newbie_qq'), function (el) {
+  if (!validateNull(document.getElementById('newbie_qq')) || !validateFun(document.getElementById('newbie_qq'), function (el) {
       return el.value.replace(/^\s+|\s+$/g,"").match(/[1-9][0-9]{5,13}/)
     }, "你的QQ很神奇")) {
     flag = true;
   }
-  if (!validateFun(document.getElementById('newbie_bio'), function (el) {
+  if (!validateNull(document.getElementById('newbie_bio')) || !validateFun(document.getElementById('newbie_bio'), function (el) {
       return el.value.replace(/^\s+|\s+$/g,"").length < 500
     }, "个人简介太长，又不是写论文~")) {
-    flag = ture;
+    flag = true;
   }
 
   if (!validateChecked(document.querySelectorAll("[name='newbie[sex]']"))){
@@ -84,8 +86,7 @@ function toggleWarn(el, flag, msg) {
   return flag;
 }
 
-function validateNull(e) {
-  let el = e.srcElement;
+function validateNull(el) {
   return toggleWarn(el, isNotNull(el), "别忘了填哦~");
 }
 
@@ -104,7 +105,9 @@ function validateChecked(arr) {
 }
 
 Array.prototype.forEach.call(document.querySelectorAll('input[type=text]'), function (el) {
-  el.addEventListener('blur', validateNull);
+  el.addEventListener('blur', function (e) {
+    validateNull(e.srcElement);
+  });
 });
 
 document.getElementsByTagName('form')[0].addEventListener('submit', validate);
