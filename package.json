@@ -1,7 +1,7 @@
 {
   "name": "ws-2017-spring-recruit-frontend",
-  "version": "0.0.1",
-  "main": "build/index.js",
+  "version": "1.7.0",
+  "main": "build/build.js",
   "repository": "git@github.com:MondoGao/ws-2017-spring-recruit-frontend.git",
   "author": "MondoGao",
   "license": "MIT",
