@@ -8,12 +8,16 @@
     <title>WESharp 2017 春季招新</title>
     <script>
         // 多屏幕兼容
-        let ratio = window.innerHeight / window.outerHeight;
-        if (ratio < 0.48) {
-          window.addEventListener('load', function (e) {
+        function ratioChange() {
+          let ratio = window.innerHeight / window.innerWidth;
+          if (ratio < 1.563) {
             document.body.classList.add('slim');
-          });
+          } else {
+            document.body.classList.remove('slim');
+          }
         }
+        setTimeout(ratioChange, 0);
+        window.addEventListener('resize', ratioChange);
 
       (function (win, lib) {
         var doc = win.document;
